@@ -102,31 +102,8 @@ def run_app():
         ax2.set_title(f"{ticker} - Strategy vs. Buy-and-Hold")
         ax2.grid(True)
         st.pyplot(fig2)
-    
-        # Show interactive candlestick chart
-        st.subheader(f"{ticker} Candlestick Chart")
-    
-        # Reset index to get datetime for x-axis
-        data_reset = data.reset_index()
-    
-        fig_candle = go.Figure(data=[go.Candlestick(
-            x=data_reset.index,
-            open=data_reset['Open'],
-            high=data_reset['High'],
-            low=data_reset['Low'],
-            close=data_reset['Close'],
-            name="Candlestick"
-        )])
-    
-        fig_candle.update_layout(
-            xaxis_rangeslider_visible=True,
-            title=f"{ticker} Candlestick Chart",
-            xaxis_title="Date",
-            yaxis_title="Price"
-        )
-    
-        st.plotly_chart(fig_candle, use_container_width=True)
-    
+
+
         # Monte Carlo Simulation
         st.subheader("Monte Carlo Simulation")
     
